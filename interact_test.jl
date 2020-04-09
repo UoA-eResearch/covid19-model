@@ -10,7 +10,7 @@ function generate_ui()
 
     function simulation_start(ob)
 
-        global stop_simulation = false
+        stop_simulation = false
         println("starting simulation ...")
 
         params = COVID.create_params(C=8, max_travel_rate=0.01)
@@ -45,7 +45,7 @@ function generate_ui()
                     ylabel!(p, "log( count )")
 
                     if step == nsteps
-                        global simulation_complete = true
+                        simulation_complete = true
                         println("simulation complete")
                     end
 
@@ -57,7 +57,7 @@ function generate_ui()
                     println()
                 end
 
-                global stop_simulation = true
+                stop_simulation = true
                 break
             end
         end
@@ -65,7 +65,7 @@ function generate_ui()
     end
 
     function simulation_stop(ob)
-        global stop_simulation = true
+        stop_simulation = true
         return plt[]
     end
 
